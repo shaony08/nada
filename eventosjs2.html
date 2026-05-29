@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 2</title>
+</head>
+<body>
+    <div id="caja" style="width: 100px; height: 100px; background: gray;"></div>
+    <!-- Evento en línea llamando a la función de JS -->
+    <button onclick="alternarLuz()">Interruptor</button>
+    <!-- Completar el código para que cada vez que se pulse el botón se incremente el número --> 
+    <p>Clics: <span id="contador">0</span></p>
+    <button id="btnContar" onclick="incrementarContador()">Incrementar</button> 
+    <h1>Eventos</h1>
+    <audio id="audio" onplay="playAudio()" onpause="enPausa()"
+    src="/audio/dynttatoov.mp3" controls>
+    </audio>
+    <form id="frmFechas">
+        <input type="month" id="meses">
+        <input type="week" id="semanas">
+        <input type="email" id="correo">
+        <button type="submit">Enviar</button>
+    </form>
+
+    <input style="width: 300px;" type="label" id="lblaudio" value="" readonly>
+    <script>
+        function alternarLuz() {
+            const caja = document.getElementById('caja');
+            if (caja.style.background === 'gray') {
+                caja.style.background = 'yellow';
+            } else {
+                caja.style.background = 'gray';
+            }
+        }   
+        function incrementarContador() {
+            const contador = document.getElementById("contador");
+            contador.textContent = parseInt(contador.textContent) + 1;
+        }
+        function playAudio(){
+            document.getElementById("lblaudio").value = "Did you know that there's a tunnel?";}
+        function enPausa(){
+            document.getElementById("lblaudio").value = "En Pausa...";}
+        const frmFechas = document.getElementById('frmFechas')
+        let correo = document.getElementById('correo')
+        let meses = document.getElementById('meses')
+        let semanas = document.getElementById('semanas')
+        frmFechas.addEventListener('submit', () => {
+            document.writeln('Datos enviados...<br>')
+            document.writeln(correo.value + '<br>')
+            document.writeln(meses.value + '<br>')
+            document.writeln(semanas.value + '<br>')
+        });
+</script>
+</body>
+</html>
